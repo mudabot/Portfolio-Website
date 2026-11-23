@@ -1,3 +1,6 @@
+// Base URL of this script (assets/), so asset paths work from any page depth
+const ASSETS_BASE = new URL('./', document.currentScript.src);
+
 document.addEventListener('DOMContentLoaded', function() {
     // Theme toggle functionality
     const themeToggle = document.querySelector('.theme-toggle');
@@ -36,8 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (downloadLink) {
         downloadLink.addEventListener('click', (e) => {
             e.preventDefault();
+            if (document.querySelector('.popup')) return; // already open
             const iframe = document.createElement('iframe');
-            iframe.src = '../assets/docs/Curriculum Vitae Ing Mudasir Ayuba.pdf';
+            iframe.src = new URL('docs/Curriculum Vitae Ing Mudasir Ayuba.pdf', ASSETS_BASE).href;
             iframe.frameBorder = '0';
             
             const popup = document.createElement('div');
@@ -51,12 +55,16 @@ document.addEventListener('DOMContentLoaded', function() {
             popup.appendChild(iframe);
             document.body.appendChild(popup);
 
-            const closePopup = () => popup.remove();
-            
-            closeButton.addEventListener('click', closePopup);
-            document.addEventListener('keydown', (e) => {
+            const onKey = (e) => {
                 if (e.key === 'Escape') closePopup();
-            });
+            };
+            const closePopup = () => {
+                popup.remove();
+                document.removeEventListener('keydown', onKey);
+            };
+
+            closeButton.addEventListener('click', closePopup);
+            document.addEventListener('keydown', onKey);
         });
     }
 
@@ -180,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             input.addEventListener('blur', function() {
-                this.style.borderColor = '#ddd';
+                this.style.borderColor = '';
             });
         });
     }
@@ -188,13 +196,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return; // placeholder / handled elsewhere
+            const targetElement = document.querySelector(href);
+            if (!targetElement) return;
             e.preventDefault();
-            const targetElement = document.querySelector(this.getAttribute('href'));
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 });

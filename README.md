@@ -30,25 +30,19 @@ A modern and responsive portfolio website built with HTML, CSS, and JavaScript t
 
 
 ## Project Structure
-rootfolder/
+```
+Portfolio-Website/
 ├── assets/
-│   ├── images/
-│   │   └── (images)
-│   ├── docs/     
-│   │   └── (documents)
-│   ├── css/
-│   │   └── (stylesheets)
-│   └── js (script,js)
-│   └── projects
-├── pages/
-│   └── (additional HTML pages)
+│   ├── css/        (stylesheets)
+│   ├── docs/       (CV PDF)
+│   ├── images/     (logo, backgrounds, photos)
+│   ├── projects/   (project screenshots)
+│   └── script.js
+├── pages/          (about, contact, projects, services)
 ├── index.html
-├── NOTICE.md
-└── personal portfolio website-figma.png
-└── README.md
+├── README.md
 └── WEBSITE DESIGN PROPOSAL.docx
-
-
+```
 
 ## Quick Start
 1. Download or clone the repository
@@ -63,10 +57,8 @@ rootfolder/
 
 
 ## Performance Optimization
-- Minified CSS and JavaScript files
-- Optimized images
-- Caching enabled
-
+- Images are served as WebP/AVIF
+- Planned: minified CSS/JS and caching headers
 
 ## Development
 To modify this portfolio:
