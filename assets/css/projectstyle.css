@@ -1,6 +1,6 @@
 /* Project Page Styles */
 .projects-intro {
-    padding: 120px 20px 60px; /*Increased top padding to account for header */
+    padding: 120px var(--side-pad) 60px; /*Increased top padding to account for header */
     text-align: center;
     background-color: var(--background-color);
     margin-top: 0; /* Remove any margin if present */
@@ -55,8 +55,9 @@ html {
 
 /* Project Section Styles */
 .project-section {
-    padding: 20px 20px;
-    max-width: 1200px;
+    padding: 20px 0;
+    width: calc(100% - 2 * var(--gutter)); /* same side gutter as the header */
+    max-width: var(--content-max);
     margin: 0 auto;
 }
 
