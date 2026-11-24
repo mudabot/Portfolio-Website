@@ -41,8 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // CV Preview functionality
-  const downloadLink = document.querySelector("#download-cv");
-  if (downloadLink) {
+  // Any link with id="download-cv" or class="cv-link" opens its own Google Drive
+  // file in the popup (homepage CV button, About page resume button, etc.)
+  document.querySelectorAll("#download-cv, .cv-link").forEach((downloadLink) => {
     downloadLink.addEventListener("click", (e) => {
       e.preventDefault();
       if (document.querySelector(".popup")) return; // already open
@@ -72,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
       closeButton.addEventListener("click", closePopup);
       document.addEventListener("keydown", onKey);
     });
-  }
+  });
 
   // Comment section functionality
   const commentLink = document.querySelector(".comment-link");
