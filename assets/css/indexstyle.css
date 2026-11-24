@@ -565,13 +565,11 @@ nav ul li a.active {
 footer {
     background-color: #34495e;
     color: #fff;
-    padding: 50px;
+    padding: 20px 100px;
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 40px;
-    padding-right: 40px;
 }
 
 
