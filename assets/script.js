@@ -43,37 +43,39 @@ document.addEventListener("DOMContentLoaded", function () {
   // CV Preview functionality
   // Any link with id="download-cv" or class="cv-link" opens its own Google Drive
   // file in the popup (homepage CV button, About page resume button, etc.)
-  document.querySelectorAll("#download-cv, .cv-link").forEach((downloadLink) => {
-    downloadLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (document.querySelector(".popup")) return; // already open
-      const iframe = document.createElement("iframe");
-      iframe.src = downloadLink.href.replace(/\/view.*$/, "/preview");
-      iframe.frameBorder = "0";
+  document
+    .querySelectorAll("#download-cv, .cv-link")
+    .forEach((downloadLink) => {
+      downloadLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (document.querySelector(".popup")) return; // already open
+        const iframe = document.createElement("iframe");
+        iframe.src = downloadLink.href.replace(/\/view.*$/, "/preview");
+        iframe.frameBorder = "0";
 
-      const popup = document.createElement("div");
-      popup.classList.add("popup");
+        const popup = document.createElement("div");
+        popup.classList.add("popup");
 
-      const closeButton = document.createElement("button");
-      closeButton.classList.add("close-button");
-      closeButton.textContent = "Close";
+        const closeButton = document.createElement("button");
+        closeButton.classList.add("close-button");
+        closeButton.textContent = "Close";
 
-      popup.appendChild(closeButton);
-      popup.appendChild(iframe);
-      document.body.appendChild(popup);
+        popup.appendChild(closeButton);
+        popup.appendChild(iframe);
+        document.body.appendChild(popup);
 
-      const onKey = (e) => {
-        if (e.key === "Escape") closePopup();
-      };
-      const closePopup = () => {
-        popup.remove();
-        document.removeEventListener("keydown", onKey);
-      };
+        const onKey = (e) => {
+          if (e.key === "Escape") closePopup();
+        };
+        const closePopup = () => {
+          popup.remove();
+          document.removeEventListener("keydown", onKey);
+        };
 
-      closeButton.addEventListener("click", closePopup);
-      document.addEventListener("keydown", onKey);
+        closeButton.addEventListener("click", closePopup);
+        document.addEventListener("keydown", onKey);
+      });
     });
-  });
 
   // Comment section functionality
   const commentLink = document.querySelector(".comment-link");
@@ -109,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // In your existing script.js, update the GitHub Calendar section:
   const calendarDiv = document.querySelector(".calendar");
-  const username = "sir-mole"; // Replace with your GitHub username
+  const username = "mudabot"; // Replace with your GitHub username
 
   if (calendarDiv) {
     fetch(`https://api.github.com/users/${username}/events`)
