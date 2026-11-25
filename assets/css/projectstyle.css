@@ -23,7 +23,7 @@
     background-color: #2c3e50b6;
     padding: 20px 0;
     position: sticky;
-    top: 100px; /* Set this to your header height */
+    top: var(--header-h, 70px); /* flush under the header (set from script.js) */
     z-index: 999; /* Just below header z-index */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -55,6 +55,8 @@ html {
 
 /* Project Section Styles */
 .project-section {
+    /* keep headings clear of the fixed header + sticky category bar when jumping to a tab */
+    scroll-margin-top: calc(var(--header-h, 70px) + var(--cat-nav-h, 66px) + 16px);
     padding: 20px 0;
     width: calc(100% - 2 * var(--gutter)); /* same side gutter as the header */
     max-width: var(--content-max);
@@ -555,9 +557,6 @@ html {
     }
 
 
-    .project-categories {
-        top: 80px; /* Adjust based on your mobile header height */
-    }
     .project-categories ul {
         flex-wrap: wrap;
         gap: 10px;

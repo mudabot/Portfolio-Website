@@ -34,7 +34,6 @@ A modern and responsive portfolio website built with HTML, CSS, and JavaScript t
 Portfolio-Website/
 ├── assets/
 │   ├── css/        (stylesheets)
-│   ├── docs/       (CV PDF)
 │   ├── images/     (logo, backgrounds, photos)
 │   ├── projects/   (project screenshots)
 │   └── script.js

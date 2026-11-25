@@ -1,7 +1,21 @@
-// Base URL of this script (assets/), so asset paths work from any page depth
-const ASSETS_BASE = new URL("./", document.currentScript.src);
-
 document.addEventListener("DOMContentLoaded", function () {
+  // Publish the real header / sticky-nav heights as CSS variables so sticky
+  // offsets and anchor scrolling stay correct at every screen size.
+  const siteHeader = document.querySelector("header");
+  const categoryNav = document.querySelector(".project-categories");
+  const setLayoutVars = () => {
+    const root = document.documentElement;
+    if (siteHeader) {
+      root.style.setProperty("--header-h", siteHeader.offsetHeight + "px");
+    }
+    if (categoryNav) {
+      root.style.setProperty("--cat-nav-h", categoryNav.offsetHeight + "px");
+    }
+  };
+  setLayoutVars();
+  window.addEventListener("resize", setLayoutVars);
+  window.addEventListener("load", setLayoutVars);
+
   // Theme toggle functionality
   const themeToggle = document.querySelector(".theme-toggle");
 
