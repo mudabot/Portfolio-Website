@@ -4,6 +4,9 @@
        1200px content column, so everything lines up with the experience grid. */
     --gutter: 100px; /* desktop side gutter; stepped down on smaller screens below */
     --content-max: 1200px;
+
+    /* One font stack for the whole site: Poppins, with real system fallbacks */
+    --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --side-pad: max(var(--gutter), calc((100% - var(--content-max)) / 2));
 
     /* Light theme */
@@ -37,8 +40,16 @@ body.dark-theme {
 }
 
 
+/* form controls ignore the page font unless told to inherit (they fell back to Arial) */
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     margin: 0;
     background-color: #e7e6e6;
     color: #333;
@@ -528,7 +539,7 @@ footer .social-links {
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
+    font-family: inherit;
 }
 
 .comment-content form textarea {
