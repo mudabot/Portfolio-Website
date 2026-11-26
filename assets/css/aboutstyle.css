@@ -5,7 +5,7 @@
 }
 
 .about-intro h1 {
-    font-size: 3em;
+    font-size: var(--fs-display);
     margin-bottom: 20px;
     color: #2c3e50;
 }
@@ -15,7 +15,7 @@
 }
 
 .lead-text {
-    font-size: 1.5em;
+    font-size: var(--fs-lead);
     color: #2c3e50;
 }
 
@@ -71,7 +71,7 @@
 .professional-summary h2 {
     color: #2c3e50;
     margin-bottom: 15px;
-    font-size: 1.5em;
+    font-size: var(--fs-h3);
 }
 
 .dark-theme .professional-summary h2 {
@@ -108,7 +108,7 @@
 
 .contact-section h2 {
     color: #2c3e50;
-    font-size: 1.2em;
+    font-size: var(--fs-h4);
     margin-bottom: 10px;
 }
 
@@ -220,7 +220,7 @@
     text-align: center;
     margin-bottom: 30px;
     color: #2c3e50;
-    font-size: 2em;
+    font-size: var(--fs-h2);
 }
 
 .dark-theme .skills-section h2 {
@@ -262,7 +262,7 @@
     gap: 10px;
     color: #2c3e50;
     margin-bottom: 10px;
-    font-size: 1.4em;
+    font-size: var(--fs-h3);
 }
 
 .dark-theme .skill-category h3 {
@@ -278,7 +278,7 @@
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* mobile block below: 1 column */
     gap: 10px 20px;
 }
 
@@ -307,7 +307,7 @@
 }
 
 .tools-section h2 {
-    font-size: 2.2em;
+    font-size: var(--fs-h2);
     margin-bottom: 30px;
     color: #2c3e50;
 }
@@ -318,7 +318,7 @@
 
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(var(--cols), 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -367,7 +367,7 @@
 }
 
 .tool-category span {
-    font-size: 0.95em;
+    font-size: var(--fs-small);
     color: #555;
     line-height: 1.7;
     margin: 10px;
@@ -391,14 +391,14 @@
     margin-bottom: 10px;
     margin-top: 0;
     color: #2c3e50;
-    font-size: 2em;
+    font-size: var(--fs-h2);
 }
 
 .education-certificates h1 {
     text-align: center;
     margin: 30px;
     color: #2c3e50;
-    font-size: 1.2em;
+    font-size: var(--fs-h4);
 }
 
 .dark-theme .education-certificates h2 {
@@ -488,7 +488,7 @@
     gap: 10px;
     color: #2c3e50;
     margin-bottom: 10px;
-    font-size: 1.4em;
+    font-size: var(--fs-h3);
 }
 
 .dark-theme .education-item h3 {
@@ -498,7 +498,7 @@
 .education-item h2 {
     text-align: left;
     color: #2c3e50;
-    font-size: 1em;
+    font-size: var(--fs-body);
 }
 
 .dark-theme .education-item h2 {
@@ -560,7 +560,7 @@
     margin-bottom: 0;
     margin-top: 5px;
     color: #2c3e50;
-    font-size: 1em;
+    font-size: var(--fs-body);
 }
 
 .dark-theme .cert-item h3{
@@ -572,7 +572,7 @@
     text-align: center;
     margin: 0;
     color: #555;
-    font-size: 0.8em;
+    font-size: var(--fs-xs);
     /* Ensure text doesn't overflow */
     overflow: hidden;
     text-overflow: ellipsis;
@@ -587,12 +587,12 @@
 }
 
 .philosophy-section h2{
-    font-size: 3em;
+    font-size: var(--fs-display);
 
 }
 
 .philosophy-section p{
-    font-size: 1.3em;
+    font-size: var(--fs-lead);
     text-align: center;
     font-weight: bolder;
     color: #555
@@ -620,7 +620,7 @@
 
 .projects-cta h2 {
     color: #333333;  /* Light theme text color */
-    font-size: 2em;
+    font-size: var(--fs-h2);
     margin-bottom: 15px;
 }
 
@@ -675,42 +675,16 @@
 
 
 /* Responsive Design */
-@media (max-width: 968px) {
-    .profile-section {
-        grid-template-columns: 1fr;
-    }
-
-    .profile-image {
-        width: 250px;
-        height: 250px;
-        margin: 0 auto;
-    }
-
-    .profile-content {
-        text-align: center;
-    }
-
-    .contact-info {
-        align-items: center;
-    }
-
-    .social-links-professional {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     /* intro section adjustments */
     .about-intro {
         padding: 40px 20px;  /* Added consistent padding */
     }
     
     .about-intro h1 {
-        font-size: 2em;  /* Reduced font size for better mobile display */
     }
 
     .lead-text {
-        font-size: 1.2em;  /* Adjusted for better readability */
     }
 
     /* Profile section adjustments */
@@ -724,6 +698,14 @@
         width: 200px;
         height: 200px;
         margin: 0 auto;
+    }
+
+    .profile-content {
+        text-align: center;
+    }
+
+    .contact-info {
+        align-items: center;
     }
 
     /* Education and certificates grid adjustment */
@@ -781,11 +763,9 @@
     }
 
     .philosophy-section h2 {
-        font-size: 2em;
     }
 
     .philosophy-section p {
-        font-size: 1.1em;
     }
 
     /* Contact section improvements */

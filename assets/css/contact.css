@@ -10,7 +10,7 @@
 
 .contact-container h2 {
     text-align: center;
-    font-size: 2.5em;
+    font-size: var(--fs-h2);
     margin-bottom: 40px;
     color: #2c3e50;
 }
@@ -46,6 +46,8 @@
 
 .form-group input,
 .form-group textarea {
+    box-sizing: border-box;
+    width: 100%;
     padding: 12px;
     border: 2px solid #e7e6e6;
     border-radius: 8px;
@@ -83,7 +85,7 @@
 /* Contact Options Section */
 .contact-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* mobile block below: 1 column */
     gap: 20px;
     margin-top: 30px;
 }
@@ -144,18 +146,17 @@
     text-decoration: none;
     color: #2c3e50;
     font-weight: 500;
-    font-size: 1.1em;
+    font-size: var(--fs-body);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .contact-container {
         margin: 20px auto;
         padding: 0 15px;
     }
 
     .contact-container h2 {
-        font-size: 2em;
     }
 
     .contact-form {

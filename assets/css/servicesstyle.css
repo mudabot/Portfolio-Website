@@ -29,23 +29,23 @@ body.dark-theme {
 .tagline {
     color: #f39c12;
     margin-bottom: 10px;
-    font-size: 1.1em;
+    font-size: var(--fs-body);
 }
 
 .intro-service h1 {
-    font-size: 2.5em;
+    font-size: var(--fs-display);
     margin-bottom: 20px;
 }
 
 .intro-service p {
-    font-size: 1.2em;
+    font-size: var(--fs-lead);
     line-height: 1.8;
 }
 
 .services {
     padding: 40px 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(var(--cols), 1fr);
     gap: 20px;
     width: calc(100% - 2 * var(--gutter)); /* same side gutter as the header */
     max-width: var(--content-max);
@@ -107,7 +107,7 @@ body.dark-theme {
 }
 
 .service-card p {
-    font-size: 0.95em;
+    font-size: var(--fs-small);
     color: #555;
     line-height: 1.7;
 }
@@ -174,7 +174,7 @@ body.dark-theme {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
    
     .services {
         grid-template-columns: 1fr;
