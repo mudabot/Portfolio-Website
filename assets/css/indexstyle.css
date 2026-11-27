@@ -940,6 +940,7 @@ footer .social-links a {
 }
 
 /* FEATURED-PROJECTS:START */
+/* ---- Featured projects (homepage) ---- */
 .featured-projects {
     padding: 30px var(--gutter) 50px;
     text-align: center;
@@ -1073,7 +1074,6 @@ footer .social-links a {
     color: #e67e22;
 }
 
-/* the "there's more" card: centred call to action */
 .featured-more .featured-body {
     align-items: center;
     justify-content: center;
@@ -1085,10 +1085,103 @@ footer .social-links a {
     font-weight: 600;
 }
 
-/* tablet: 3 cards in 2 columns, last one spans the row */
 @media (max-width: 1199px) {
     .featured-card:last-child:nth-child(odd) {
         grid-column: 1 / -1;
     }
 }
 /* FEATURED-PROJECTS:END */
+
+/* PORTFOLIO-LINKS:START */
+/* ---- Find My Work card + platform buttons ---- */
+.platform-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.platform-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-size: var(--fs-small);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.platform-btn i {
+    font-size: 1.25rem;
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+a.platform-btn:hover,
+a.platform-btn:focus-visible {
+    background-color: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+a.platform-btn:hover i,
+a.platform-btn:focus-visible i {
+    color: #fff;
+}
+
+.platform-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.25;
+}
+
+.platform-btn small {
+    font-size: var(--fs-xs);
+    opacity: 0.7;
+}
+
+.platform-btn.is-soon {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.dark-theme .platform-btn {
+    background-color: #34495e;
+    color: #eee;
+}
+
+/* ---- Projects page: "See more on <platform>" ---- */
+.platform-more {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.platform-btn--wide {
+    display: inline-flex;
+    justify-content: center;
+    padding: 12px 24px;
+    border: 2px solid var(--accent);
+    background-color: transparent;
+    color: #2c3e50;
+    font-size: var(--fs-body);
+}
+
+.dark-theme .platform-btn--wide {
+    background-color: transparent;
+    color: #eee;
+}
+
+@media (max-width: 767px) {
+    .platform-list {
+        grid-template-columns: 1fr;
+    }
+}
+/* PORTFOLIO-LINKS:END */
